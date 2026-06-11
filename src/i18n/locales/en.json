@@ -98,6 +98,351 @@
     "EPIC": "Epic",
     "LEGENDARY": "Legendary"
   },
+  "event": {
+    "header": "Street News",
+    "locked": "Locked — {{hint}}",
+    "hintCash": "needs {{amount}}",
+    "hintRep": "needs reputation {{value}}",
+    "hintDisposition": "needs {{name}} at {{value}}+",
+    "continue": "Continue"
+  },
+  "tierUp": {
+    "title": "Moving up!",
+    "body": "You've reached {{tierName}}."
+  },
+  "empire": {
+    "title": "{{brand}} Global",
+    "subtitle": "Instant noodles. Worldwide. From one street cart.",
+    "factories": "Factories",
+    "markets": "Markets",
+    "brandValue": "Brand value",
+    "equity": "Equity given away",
+    "buildFactory": "Build factory ({{cost}})",
+    "enterMarket": "Enter market ({{cost}})",
+    "runQuarter": "Run a quarter",
+    "quarterResult": "Quarter profit: {{profit}}",
+    "prestige": "Retire & start a new legend (+{{bonus}}% forever)",
+    "prestigeConfirm": "Hand the empire to family and start again with a permanent bonus?",
+    "prestigeBadge": "Legend bonus: +{{bonus}}%"
+  },
+  "events": {
+    "gang_shakedown": {
+      "title": "A Visit From The Boys",
+      "body": "Minh 'The Hammer' leans on your cart, casually crushing a lime. 'Nice spot. Be a shame if the queue got... rearranged.'",
+      "c": {
+        "pay": "Pay the 'cleaning fee' (50.000 ₫)",
+        "negotiate": "Offer his ma a free bowl every morning",
+        "resist": "Stand your ground — Minh's got your back"
+      },
+      "r": {
+        "pay": "He pockets the note and straightens your stool 'for free'.",
+        "negotiate": "He goes quiet. 'She likes extra herbs.' You have a deal — and maybe a friend.",
+        "resist": "Minh waves the boys off. 'This one feeds Ma. Walk on.'"
+      }
+    },
+    "old_debt": {
+      "title": "Your Father's Tab",
+      "body": "A ledger from years back surfaces: your father owed the district crew. Minh slides it across the counter without a word.",
+      "c": {
+        "pay": "Settle it, every đồng (200.000 ₫)",
+        "refuse": "Not your debt. Refuse.",
+        "ask_minh": "Ask Minh to make it disappear"
+      },
+      "r": {
+        "pay": "Minh nods slowly. 'Respect.' Word of it travels the street.",
+        "refuse": "He shrugs and leaves. The lime on your counter is crushed flat.",
+        "ask_minh": "He burns the page over your stove. 'We're even now. Don't ask twice.'"
+      }
+    },
+    "gang_party": {
+      "title": "Karaoke Catering",
+      "body": "Sáu 'Silk' wants forty bowls delivered to her karaoke bar by nine. Tonight. Hot.",
+      "c": {
+        "cater": "Fire up the pots — money's money",
+        "decline": "Politely decline"
+      },
+      "r": {
+        "cater": "Forty bowls, zero spills, one standing ovation between power ballads.",
+        "decline": "'Pity,' she says, in a tone that costs you nothing. Yet."
+      }
+    },
+    "rent_hike": {
+      "title": "The Rent Goes Up",
+      "body": "Mr Phúc appears the same afternoon your new sign goes up. 'Inflation,' he sighs, eyeing the queue.",
+      "c": {
+        "pay": "Pay the increase (300.000 ₫)",
+        "haggle": "Point at the leaking roof and haggle",
+        "kim": "Mention Madam Kim is offering you her shophouse"
+      },
+      "r": {
+        "pay": "He counts it twice and blesses your doorway on the way out.",
+        "haggle": "He settles for half, muttering about 'sentimental landlords'.",
+        "kim": "His face does arithmetic. The rent stays where it was."
+      }
+    },
+    "eviction_threat": {
+      "title": "Papers On The Door",
+      "body": "An eviction notice, taped crooked. Mr Phúc claims a 'better tenant' made an offer.",
+      "c": {
+        "deposit": "Match it with a year's deposit (1.000.000 ₫)",
+        "plead": "Plead for time",
+        "chin": "Let Auntie Chín have a quiet word"
+      },
+      "r": {
+        "deposit": "Money talks. The notice comes down before the tape dries.",
+        "plead": "He gives you a month, loudly, so the whole street hears.",
+        "chin": "Whatever she said, he now waves at you twice a day."
+      }
+    },
+    "employee_theft": {
+      "title": "Short Till",
+      "body": "The till is light again. Lan won't meet your eye over the dish rack.",
+      "c": {
+        "confront": "Confront her in front of everyone",
+        "forgive": "Cover it and ask her quietly what's wrong",
+        "police": "Have Officer Long ask the questions"
+      },
+      "r": {
+        "confront": "She owns up — her mother's medicine. The kitchen goes very quiet.",
+        "forgive": "Her mother's medicine. She pays you back in double shifts and loyalty.",
+        "police": "Long recovers most of it. Lan's dreams of her own stall move elsewhere."
+      }
+    },
+    "no_show_rush": {
+      "title": "No-Show at Noon",
+      "body": "Tuấn's moto died across town and the lunch queue is bending around the corner.",
+      "c": {
+        "push": "Work the line alone like a machine",
+        "close": "Cap the queue and close early",
+        "family": "Ring little Thu to skip homework club"
+      },
+      "r": {
+        "push": "You serve them all. Your arms file a formal complaint.",
+        "close": "The uncles at the back do not take it gracefully.",
+        "family": "Thu runs trays like a pro and invoices you in ice cream."
+      }
+    },
+    "chef_walkout": {
+      "title": "The Garnish Ultimatum",
+      "body": "Chef Bảo is holding a plate of coriander like a hostage. 'It goes ON TOP, or I go OUT THE DOOR.'",
+      "c": {
+        "apologise": "Apologise to him in front of the kitchen",
+        "let_go": "Let him walk",
+        "his_way": "Concede: the coriander goes on top"
+      },
+      "r": {
+        "apologise": "He accepts with the grace of a man who has already won.",
+        "let_go": "He leaves. The broth tastes fine. The drama is irreplaceable.",
+        "his_way": "He plates it reverently. Honestly? It does look better."
+      }
+    },
+    "health_inspection": {
+      "title": "White Gloves",
+      "body": "Inspector Hạnh arrives unannounced, one finger already extended toward your counter.",
+      "c": {
+        "scrub": "All hands — scrub everything now",
+        "envelope": "Slip an envelope across the counter",
+        "shine": "Stand back. The kitchen already shines."
+      },
+      "r": {
+        "scrub": "The finger comes up clean. She almost smiles.",
+        "envelope": "She opens it, photographs it, and files it. That went badly.",
+        "shine": "She checks twice. 'Acceptable.' From her, that's poetry."
+      }
+    },
+    "investor_pitch_chin": {
+      "title": "Tea With Auntie Chín",
+      "body": "She queues like everyone else, eats, wipes her mouth, and says: 'I'd like to buy a piece of your future.'",
+      "c": {
+        "accept": "Accept her terms (5.000.000 ₫ for 15%)",
+        "counter": "Counter with your reputation on the table",
+        "decline": "Decline with both hands and a bow"
+      },
+      "r": {
+        "accept": "She signs with a fountain pen older than the building.",
+        "counter": "She raises an eyebrow, then her offer. 'Good. Don't do that to me again.'",
+        "decline": "She nods. 'Patience is also an investment.' The door stays open."
+      }
+    },
+    "investor_pitch_dan": {
+      "title": "Dollar Dan's Big Idea",
+      "body": "'Picture it: PHO. KING. EVERYWHERE.' Dan slides a term sheet over, sunglasses still on, indoors, at night.",
+      "c": {
+        "take": "Take the fast money (10.000.000 ₫ for 25%)",
+        "negotiate": "Let Auntie Chín redline the term sheet",
+        "decline": "Pass on the synergy"
+      },
+      "r": {
+        "take": "Champagne appears from nowhere. So does the equity clause.",
+        "negotiate": "Auntie Chín removes four clauses and his sunglasses. Better deal.",
+        "decline": "'Your loss, chief.' He tips no one on the way out."
+      }
+    },
+    "rival_undercut": {
+      "title": "Price War on the Corner",
+      "body": "Ngà has chalked '25k PHỞ' on her board, directly facing your cart. Her smile is pure declaration of war.",
+      "c": {
+        "price_war": "Slash prices and outlast her",
+        "ignore": "Ignore it — quality wins",
+        "peace": "Walk over with two bowls and talk"
+      },
+      "r": {
+        "price_war": "A week of thin margins; the street eats like royalty and remembers you held the line.",
+        "ignore": "Some regulars drift. Phở loyalty is real, but so is a discount.",
+        "peace": "You trade secrets. Her fish sauce trick is genuinely brilliant."
+      }
+    },
+    "critic_visit": {
+      "title": "The Slurp Is Here",
+      "body": "Quang sits, closes his eyes, and orders 'whatever the broth wants me to have.' His column runs Sunday.",
+      "c": {
+        "best": "Serve your absolute best",
+        "comp": "Comp the meal and pile on extras",
+        "wing_it": "Treat him like any other customer"
+      },
+      "r": {
+        "best": "He listens to the broth for a long time. Sunday's headline has stars in it.",
+        "comp": "He notes the gesture — kindly, and in print, with an asterisk.",
+        "wing_it": "Sunday's column is titled 'A Bowl of Missed Chances'. Ouch."
+      }
+    },
+    "blogger_feature": {
+      "title": "@PhoEver Wants Content",
+      "body": "Mai's camera is already eating. 'One reel. Steam everywhere. You stirring dramatically. Yes?'",
+      "c": {
+        "invite": "Lean in — give her the full show",
+        "promo": "Pay for a proper feature",
+        "ignore": "No cameras near the broth"
+      },
+      "r": {
+        "invite": "The reel does numbers. Tomorrow's queue has matching tote bags.",
+        "promo": "Polished, geotagged, devastatingly effective.",
+        "ignore": "She posts the cart anyway, caption: 'mysterious'. Could be worse."
+      }
+    },
+    "cart_breakdown": {
+      "title": "The Wheel Gives Up",
+      "body": "The cart's front wheel sheds a bolt mid-street. Your broth pot sways like a pendulum.",
+      "c": {
+        "diy": "Fix it yourself with wire and hope",
+        "uncle": "Call Uncle Tám and his chopsticks",
+        "parts": "Buy proper parts"
+      },
+      "r": {
+        "diy": "It holds. Your back disagrees with your optimism.",
+        "uncle": "He fixes it grumbling the whole time. It steers better than new.",
+        "parts": "Smooth as a new moto. The wallet hurts; the wheel purrs."
+      }
+    },
+    "pavement_sweep": {
+      "title": "Clear the Pavement!",
+      "body": "Whistles up the street — a pavement sweep is rolling toward your pitch, and Officer Long is at the front of it.",
+      "c": {
+        "run": "Pack the cart and vanish",
+        "fine": "Stay put and pay the fine",
+        "nod": "Catch Long's eye and nod"
+      },
+      "r": {
+        "run": "You and the cart take the alley at speed. Half the queue follows at a jog.",
+        "fine": "Paperwork, stamped twice. Long writes slowly so you can finish serving.",
+        "nod": "Long inspects the cart very thoroughly from the far side of the street."
+      }
+    },
+    "grandma_recipe": {
+      "title": "Grandma's Midnight Broth",
+      "body": "Grandma Yến taps your shoulder at closing. 'Tonight I cook. You watch. You do not write, you remember.'",
+      "c": {
+        "listen": "Stay up all night and learn it properly",
+        "later": "Promise to learn it next week",
+        "busy": "Too busy — maybe next year, Grandma"
+      },
+      "r": {
+        "listen": "At 4am it finally makes sense. The secret isn't an ingredient. It's the order. And the patience.",
+        "later": "She nods the nod of a woman who has heard 'next week' before.",
+        "busy": "She says nothing. The silence has a flavour, and it is bitter."
+      }
+    },
+    "typhoon_day": {
+      "title": "Typhoon Warning",
+      "body": "Rain comes in sideways. The street empties — except for three drenched regulars looking at you hopefully.",
+      "c": {
+        "close": "Board up and go home",
+        "serve": "Serve whoever braves it",
+        "shelter": "Open the awning to the whole street, on the house"
+      },
+      "r": {
+        "close": "Sensible. The cart survives; the regulars forgive, mostly.",
+        "serve": "Hot phở in a typhoon: the stuff of street legend.",
+        "shelter": "Twelve neighbours, one awning, free broth. Nobody forgets it."
+      }
+    },
+    "festival_rush": {
+      "title": "Festival Weekend",
+      "body": "Lanterns up, drums out — the festival lands on your street and the whole city is hungry.",
+      "c": {
+        "work": "Triple the stock and work the crowd",
+        "skip": "Take the weekend off"
+      },
+      "r": {
+        "work": "You sell out twice. Your ladle hand needs a holiday.",
+        "skip": "You watch the fireworks for once. The competition watches your customers."
+      }
+    },
+    "supplier_offer": {
+      "title": "First Pick at the Market",
+      "body": "Sang pulls back a tarp: bones so fresh they're practically still arguing. 'Exclusive. For partners.'",
+      "c": {
+        "deal": "Buy into the partnership (500.000 ₫)",
+        "taste": "Ask for a sample batch first",
+        "decline": "Stick with your usual stalls"
+      },
+      "r": {
+        "deal": "Handshake, then first pick of every delivery before the market even opens.",
+        "taste": "The sample broth is outrageous. He knows you'll be back.",
+        "decline": "He shrugs. The tarp closes over the good stuff."
+      }
+    },
+    "karaoke_diplomacy": {
+      "title": "Invitation From Silk",
+      "body": "An invitation in gold ink: Sáu's birthday, her bar, tonight. Attendance is, technically, optional.",
+      "c": {
+        "sing": "Get up and sing your heart out",
+        "rounds": "Keep the table's glasses full all night",
+        "leave": "Show face, then slip out early"
+      },
+      "r": {
+        "sing": "Your rendition is dreadful and Sáu adores it. You're 'family' now, terrifyingly.",
+        "rounds": "Expensive, but by midnight half the district owes you a favour.",
+        "leave": "Noted. Politely, permanently noted."
+      }
+    },
+    "michelin_whisper": {
+      "title": "A Reservation For One",
+      "body": "A reservation for one, made under a name nobody recognises, at exactly the quiet hour. The kitchen holds its breath.",
+      "c": {
+        "flawless": "Serve like it's the only bowl you'll ever make",
+        "panic": "Emergency upgrades — flowers, linen, everything",
+        "cool": "Change nothing. The bowl speaks."
+      },
+      "r": {
+        "flawless": "The guest eats in silence, pays in cash, and photographs nothing. A good sign. The best sign.",
+        "panic": "The linen confuses the regulars but the bowl lands true.",
+        "cool": "They leave half a smile behind. Impossible to read."
+      }
+    },
+    "vu_lunch": {
+      "title": "Two-Stroke's Lunch Break",
+      "body": "Vũ parks the moto and inhales. 'One bowl, boss. I've got gossip from three districts and an empty stomach.'",
+      "c": {
+        "on_house": "On the house, as always",
+        "charge": "Charge him like anyone else"
+      },
+      "r": {
+        "on_house": "He pays in gossip and free advertising shouted at traffic lights.",
+        "charge": "He pays, fair enough — but today's gossip goes to the bánh mì cart."
+      }
+    }
+  },
   "evening": {
     "title": "Counting the Till",
     "served": "Bowls served",

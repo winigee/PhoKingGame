@@ -74,3 +74,37 @@ npm run typecheck  # tsc --noEmit
 ```bash
 npm run export-cards   # emits dist/cards/ for the card designer
 ```
+
+## Phase 3 — Events, relationships, progression, endgame
+
+### What was built
+- Data-driven event engine (`/src/engine/events.ts`): weighted random
+  selection filtered by tier, once-only flags and requirement-gated choices;
+  pure `applyEffects` with clamping. 22 events in `/src/content/events.json`
+  covering all the brief's seeds (gang shakedown, rent hike/eviction,
+  employee theft, no-show rush, chef walkout, health inspection, two investor
+  pitches with equity terms, rival undercutting) plus flavour events
+  (typhoon, festival, grandma's secret broth, karaoke diplomacy, the
+  anonymous Michelin scout). Events fire after service (55%/day, config).
+- Relationship system: per-character disposition 0–100 (default 50), moved
+  by event choices; requirement-gated choices read it. Measurable ability
+  hooks (`/src/engine/abilities.ts`): Sang's 10% market discount, Tuấn's
+  +20% customer patience, Grandma's secret broth +10% quality, Chef Bảo's
+  +20% quality while kept happy. Event effects can unlock characters.
+- Tier progression (`/src/engine/progression.ts` + `/src/content/tiers.json`):
+  gates combine cash, reputation and named relationships (Tier 4 needs an
+  INVESTOR at 70+, Tier 5 a CHEF at 60+). Michelin star at Tier 5 after
+  surviving two critic visits; Tier 6 requires the star.
+- Tier 6 endgame: empire dashboard (factories, markets, brand value), light
+  idle quarter loop, and a prestige reset granting a permanent percentage
+  bonus — reduced by equity given away to investors during the run.
+- Save payload extended (all optional fields; older saves keep loading).
+
+### Known issues
+- Event frequency/weights tuned by simulation, not playtesting; the
+  60–90-minute Tier 4 pace assumes ~3–4 minutes per in-game day.
+- Critic events only roll at Tiers 4–5, so the star is gated behind a few
+  evenings of luck; a guaranteed critic visit timer would smooth this.
+
+### How to run
+No new commands; events surface automatically after service.

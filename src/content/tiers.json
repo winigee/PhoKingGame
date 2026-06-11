@@ -1,0 +1,35 @@
+{
+  "eventChancePerDay": 0.55,
+  "empire": {
+    "factoryBaseCost": 50000000,
+    "factoryCostGrowth": 1.6,
+    "marketBaseCost": 120000000,
+    "marketCostGrowth": 1.7,
+    "profitPerFactoryMarket": 8000000
+  },
+  "gates": [
+    { "tier": 2, "nameKey": "tierName.2", "cash": 1500000, "reputation": 25 },
+    { "tier": 3, "nameKey": "tierName.3", "cash": 5000000, "reputation": 40 },
+    {
+      "tier": 4,
+      "nameKey": "tierName.4",
+      "cash": 15000000,
+      "reputation": 55,
+      "relationship": { "faction": "INVESTOR", "minDisposition": 70 }
+    },
+    {
+      "tier": 5,
+      "nameKey": "tierName.5",
+      "cash": 50000000,
+      "reputation": 70,
+      "relationship": { "faction": "CHEF", "minDisposition": 60 }
+    },
+    {
+      "tier": 6,
+      "nameKey": "tierName.6",
+      "cash": 150000000,
+      "reputation": 85,
+      "requiresMichelin": true
+    }
+  ]
+}

@@ -4,8 +4,9 @@
  * save/load round-tripping through an in-memory persistence.
  */
 import { dishes, gameConfig, ingredients } from '../../content';
+import { choiceAvailable } from '../../engine/events';
 import type { Grade, IngredientCategory } from '../../engine/types';
-import { useGameStore } from '../gameStore';
+import { pendingEvent, useGameStore } from '../gameStore';
 import { setPersistence } from '../saveBridge';
 import type { SaveGame } from '../saveTypes';
 
@@ -48,6 +49,25 @@ function playOneDay(grade: Grade): void {
   }
   for (let i = toServe; i < store().customersToday; i++) store().customerWalked();
   store().closeService();
+  // An evening event may interrupt; resolve it with the first available choice.
+  if (store().phase === 'EVENT') {
+    const event = pendingEvent(store());
+    expect(event).toBeDefined();
+    const s = store();
+    const ctx = {
+      tier: s.tier,
+      cash: s.cash,
+      reputation: s.reputation,
+      dispositions: s.dispositions,
+      flags: s.flags,
+      firedEvents: s.firedEvents,
+    };
+    const choice = event!.choices.find((c) => choiceAvailable(c, ctx));
+    expect(choice).toBeDefined();
+    store().chooseEventOption(choice!.id);
+    expect(store().lastChoiceResultKey).toBe(choice!.resultKey);
+    store().dismissEvent();
+  }
   expect(store().phase).toBe('EVENING');
 }
 
@@ -87,6 +107,56 @@ describe('full day cycle', () => {
     expect(bought).toBeLessThan(100);
     const price = store().market.find((m) => m.ingredientId === 'brisket')!.prices.A;
     expect(store().cash).toBeLessThan(price);
+  });
+});
+
+describe('relationships and progression', () => {
+  it("Sang's wholesale discount measurably lowers market prices", () => {
+    const price = () => store().market.find((m) => m.ingredientId === 'brisket')!.prices.A;
+    const cashBefore = store().cash;
+    store().buyBatch('brisket', 'A');
+    expect(cashBefore - store().cash).toBe(price());
+
+    useGameStore.setState({
+      collected: [...store().collected, 'supplier_sang'],
+      dispositions: { supplier_sang: 60 },
+    });
+    const cashMid = store().cash;
+    store().buyBatch('brisket', 'A');
+    expect(cashMid - store().cash).toBe(Math.round(price() * 0.9));
+  });
+
+  it('tier rises overnight once the gate is met', async () => {
+    useGameStore.setState({ cash: 2000000, reputation: 30 });
+    playOneDay('A');
+    await store().sleep();
+    expect(store().tier).toBe(2);
+    expect(store().tierUpTo).toBe(2);
+    // Tier 2 characters joined the collection.
+    expect(store().collected).toContain('tuan_speedy');
+  });
+
+  it('reaching tier 6 switches to the empire dashboard', async () => {
+    useGameStore.setState({
+      tier: 5,
+      cash: 200000000,
+      reputation: 90,
+      criticsSurvived: 2,
+    });
+    playOneDay('A');
+    await store().sleep();
+    expect(store().tier).toBe(6);
+    expect(store().phase).toBe('EMPIRE');
+    expect(store().flags).toContain('michelin_star');
+
+    // Idle loop: a quarter generates profit; prestige restarts with a bonus.
+    const cashBefore = store().cash;
+    await store().runQuarter();
+    expect(store().cash).toBeGreaterThan(cashBefore);
+    await store().prestigeReset();
+    expect(store().day).toBe(1);
+    expect(store().prestigeBonus).toBeGreaterThan(0);
+    expect(store().cash).toBeGreaterThan(gameConfig.startingCash);
   });
 });
 

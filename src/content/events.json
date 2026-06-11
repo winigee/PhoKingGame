@@ -1,0 +1,687 @@
+{
+  "events": [
+    {
+      "id": "gang_shakedown",
+      "titleKey": "events.gang_shakedown.title",
+      "bodyKey": "events.gang_shakedown.body",
+      "characterId": "minh_hammer",
+      "minTier": 1,
+      "maxTier": 3,
+      "weight": 8,
+      "choices": [
+        {
+          "id": "pay",
+          "textKey": "events.gang_shakedown.c.pay",
+          "resultKey": "events.gang_shakedown.r.pay",
+          "requirement": { "minCash": 50000 },
+          "effects": { "cash": -50000, "dispositions": { "minh_hammer": 5 }, "collect": ["minh_hammer"] }
+        },
+        {
+          "id": "negotiate",
+          "textKey": "events.gang_shakedown.c.negotiate",
+          "resultKey": "events.gang_shakedown.r.negotiate",
+          "requirement": { "minReputation": 30 },
+          "effects": { "dispositions": { "minh_hammer": 10 }, "collect": ["minh_hammer"] }
+        },
+        {
+          "id": "resist",
+          "textKey": "events.gang_shakedown.c.resist",
+          "resultKey": "events.gang_shakedown.r.resist",
+          "requirement": { "minDisposition": { "characterId": "minh_hammer", "value": 60 } },
+          "effects": { "reputation": 2, "dispositions": { "minh_hammer": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "old_debt",
+      "titleKey": "events.old_debt.title",
+      "bodyKey": "events.old_debt.body",
+      "characterId": "minh_hammer",
+      "minTier": 1,
+      "maxTier": 2,
+      "weight": 4,
+      "once": true,
+      "choices": [
+        {
+          "id": "pay",
+          "textKey": "events.old_debt.c.pay",
+          "resultKey": "events.old_debt.r.pay",
+          "requirement": { "minCash": 200000 },
+          "effects": { "cash": -200000, "reputation": 3, "dispositions": { "minh_hammer": 10 } }
+        },
+        {
+          "id": "refuse",
+          "textKey": "events.old_debt.c.refuse",
+          "resultKey": "events.old_debt.r.refuse",
+          "effects": { "reputation": -1, "dispositions": { "minh_hammer": -10 } }
+        },
+        {
+          "id": "ask_minh",
+          "textKey": "events.old_debt.c.ask_minh",
+          "resultKey": "events.old_debt.r.ask_minh",
+          "requirement": { "minDisposition": { "characterId": "minh_hammer", "value": 60 } },
+          "effects": { "dispositions": { "minh_hammer": -5 } }
+        }
+      ]
+    },
+    {
+      "id": "gang_party",
+      "titleKey": "events.gang_party.title",
+      "bodyKey": "events.gang_party.body",
+      "characterId": "sau_silk",
+      "minTier": 2,
+      "maxTier": 4,
+      "weight": 4,
+      "choices": [
+        {
+          "id": "cater",
+          "textKey": "events.gang_party.c.cater",
+          "resultKey": "events.gang_party.r.cater",
+          "effects": { "cash": 200000, "stamina": -20, "dispositions": { "sau_silk": 10 }, "collect": ["sau_silk"] }
+        },
+        {
+          "id": "decline",
+          "textKey": "events.gang_party.c.decline",
+          "resultKey": "events.gang_party.r.decline",
+          "effects": { "dispositions": { "sau_silk": -10 } }
+        }
+      ]
+    },
+    {
+      "id": "rent_hike",
+      "titleKey": "events.rent_hike.title",
+      "bodyKey": "events.rent_hike.body",
+      "characterId": "mr_phuc",
+      "minTier": 3,
+      "maxTier": 5,
+      "weight": 6,
+      "choices": [
+        {
+          "id": "pay",
+          "textKey": "events.rent_hike.c.pay",
+          "resultKey": "events.rent_hike.r.pay",
+          "requirement": { "minCash": 300000 },
+          "effects": { "cash": -300000, "dispositions": { "mr_phuc": 5 } }
+        },
+        {
+          "id": "haggle",
+          "textKey": "events.rent_hike.c.haggle",
+          "resultKey": "events.rent_hike.r.haggle",
+          "requirement": { "minReputation": 50 },
+          "effects": { "cash": -100000, "dispositions": { "mr_phuc": -5 } }
+        },
+        {
+          "id": "kim",
+          "textKey": "events.rent_hike.c.kim",
+          "resultKey": "events.rent_hike.r.kim",
+          "requirement": { "minDisposition": { "characterId": "madam_kim", "value": 60 } },
+          "effects": { "dispositions": { "madam_kim": 5, "mr_phuc": -5 } }
+        }
+      ]
+    },
+    {
+      "id": "eviction_threat",
+      "titleKey": "events.eviction_threat.title",
+      "bodyKey": "events.eviction_threat.body",
+      "characterId": "mr_phuc",
+      "minTier": 3,
+      "maxTier": 4,
+      "weight": 3,
+      "once": true,
+      "choices": [
+        {
+          "id": "deposit",
+          "textKey": "events.eviction_threat.c.deposit",
+          "resultKey": "events.eviction_threat.r.deposit",
+          "requirement": { "minCash": 1000000 },
+          "effects": { "cash": -1000000, "dispositions": { "mr_phuc": 10 } }
+        },
+        {
+          "id": "plead",
+          "textKey": "events.eviction_threat.c.plead",
+          "resultKey": "events.eviction_threat.r.plead",
+          "effects": { "reputation": -5, "dispositions": { "mr_phuc": 0 } }
+        },
+        {
+          "id": "chin",
+          "textKey": "events.eviction_threat.c.chin",
+          "resultKey": "events.eviction_threat.r.chin",
+          "requirement": { "minDisposition": { "characterId": "auntie_chin", "value": 60 } },
+          "effects": { "dispositions": { "auntie_chin": 5, "mr_phuc": -10 } }
+        }
+      ]
+    },
+    {
+      "id": "employee_theft",
+      "titleKey": "events.employee_theft.title",
+      "bodyKey": "events.employee_theft.body",
+      "characterId": "lan_dishes",
+      "minTier": 2,
+      "maxTier": 5,
+      "weight": 5,
+      "choices": [
+        {
+          "id": "confront",
+          "textKey": "events.employee_theft.c.confront",
+          "resultKey": "events.employee_theft.r.confront",
+          "effects": { "dispositions": { "lan_dishes": -10 } }
+        },
+        {
+          "id": "forgive",
+          "textKey": "events.employee_theft.c.forgive",
+          "resultKey": "events.employee_theft.r.forgive",
+          "effects": { "cash": -100000, "dispositions": { "lan_dishes": 15 } }
+        },
+        {
+          "id": "police",
+          "textKey": "events.employee_theft.c.police",
+          "resultKey": "events.employee_theft.r.police",
+          "requirement": { "minDisposition": { "characterId": "officer_long", "value": 50 } },
+          "effects": { "cash": 50000, "dispositions": { "lan_dishes": -20, "officer_long": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "no_show_rush",
+      "titleKey": "events.no_show_rush.title",
+      "bodyKey": "events.no_show_rush.body",
+      "characterId": "tuan_speedy",
+      "minTier": 2,
+      "maxTier": 5,
+      "weight": 5,
+      "choices": [
+        {
+          "id": "push",
+          "textKey": "events.no_show_rush.c.push",
+          "resultKey": "events.no_show_rush.r.push",
+          "effects": { "stamina": -25, "reputation": 2 }
+        },
+        {
+          "id": "close",
+          "textKey": "events.no_show_rush.c.close",
+          "resultKey": "events.no_show_rush.r.close",
+          "effects": { "reputation": -3 }
+        },
+        {
+          "id": "family",
+          "textKey": "events.no_show_rush.c.family",
+          "resultKey": "events.no_show_rush.r.family",
+          "effects": { "dispositions": { "sister_thu": 5, "tuan_speedy": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "chef_walkout",
+      "titleKey": "events.chef_walkout.title",
+      "bodyKey": "events.chef_walkout.body",
+      "characterId": "chef_bao",
+      "minTier": 4,
+      "maxTier": 5,
+      "weight": 6,
+      "choices": [
+        {
+          "id": "apologise",
+          "textKey": "events.chef_walkout.c.apologise",
+          "resultKey": "events.chef_walkout.r.apologise",
+          "effects": { "reputation": -2, "dispositions": { "chef_bao": 15 } }
+        },
+        {
+          "id": "let_go",
+          "textKey": "events.chef_walkout.c.let_go",
+          "resultKey": "events.chef_walkout.r.let_go",
+          "effects": { "dispositions": { "chef_bao": -30 } }
+        },
+        {
+          "id": "his_way",
+          "textKey": "events.chef_walkout.c.his_way",
+          "resultKey": "events.chef_walkout.r.his_way",
+          "effects": { "dispositions": { "chef_bao": 25 } }
+        }
+      ]
+    },
+    {
+      "id": "health_inspection",
+      "titleKey": "events.health_inspection.title",
+      "bodyKey": "events.health_inspection.body",
+      "characterId": "inspector_hanh",
+      "minTier": 2,
+      "maxTier": 5,
+      "weight": 6,
+      "choices": [
+        {
+          "id": "scrub",
+          "textKey": "events.health_inspection.c.scrub",
+          "resultKey": "events.health_inspection.r.scrub",
+          "effects": { "stamina": -15, "reputation": 3, "dispositions": { "inspector_hanh": 5 }, "collect": ["inspector_hanh"] }
+        },
+        {
+          "id": "envelope",
+          "textKey": "events.health_inspection.c.envelope",
+          "resultKey": "events.health_inspection.r.envelope",
+          "requirement": { "minCash": 200000 },
+          "effects": { "cash": -200000, "reputation": -8, "dispositions": { "inspector_hanh": -15 } }
+        },
+        {
+          "id": "shine",
+          "textKey": "events.health_inspection.c.shine",
+          "resultKey": "events.health_inspection.r.shine",
+          "requirement": { "minReputation": 40 },
+          "effects": { "reputation": 5, "dispositions": { "inspector_hanh": 10 }, "collect": ["inspector_hanh"] }
+        }
+      ]
+    },
+    {
+      "id": "investor_pitch_chin",
+      "titleKey": "events.investor_pitch_chin.title",
+      "bodyKey": "events.investor_pitch_chin.body",
+      "characterId": "auntie_chin",
+      "minTier": 3,
+      "maxTier": 5,
+      "weight": 5,
+      "once": true,
+      "choices": [
+        {
+          "id": "accept",
+          "textKey": "events.investor_pitch_chin.c.accept",
+          "resultKey": "events.investor_pitch_chin.r.accept",
+          "effects": { "cash": 5000000, "equity": 15, "dispositions": { "auntie_chin": 25 } }
+        },
+        {
+          "id": "counter",
+          "textKey": "events.investor_pitch_chin.c.counter",
+          "resultKey": "events.investor_pitch_chin.r.counter",
+          "requirement": { "minReputation": 60 },
+          "effects": { "cash": 5000000, "equity": 8, "dispositions": { "auntie_chin": 30 } }
+        },
+        {
+          "id": "decline",
+          "textKey": "events.investor_pitch_chin.c.decline",
+          "resultKey": "events.investor_pitch_chin.r.decline",
+          "effects": { "dispositions": { "auntie_chin": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "investor_pitch_dan",
+      "titleKey": "events.investor_pitch_dan.title",
+      "bodyKey": "events.investor_pitch_dan.body",
+      "characterId": "dollar_dan",
+      "minTier": 4,
+      "maxTier": 5,
+      "weight": 4,
+      "once": true,
+      "choices": [
+        {
+          "id": "take",
+          "textKey": "events.investor_pitch_dan.c.take",
+          "resultKey": "events.investor_pitch_dan.r.take",
+          "effects": { "cash": 10000000, "equity": 25, "dispositions": { "dollar_dan": 20 } }
+        },
+        {
+          "id": "negotiate",
+          "textKey": "events.investor_pitch_dan.c.negotiate",
+          "resultKey": "events.investor_pitch_dan.r.negotiate",
+          "requirement": { "minDisposition": { "characterId": "auntie_chin", "value": 70 } },
+          "effects": { "cash": 8000000, "equity": 12, "dispositions": { "dollar_dan": 15, "auntie_chin": 5 } }
+        },
+        {
+          "id": "decline",
+          "textKey": "events.investor_pitch_dan.c.decline",
+          "resultKey": "events.investor_pitch_dan.r.decline",
+          "effects": { "dispositions": { "dollar_dan": -5 } }
+        }
+      ]
+    },
+    {
+      "id": "rival_undercut",
+      "titleKey": "events.rival_undercut.title",
+      "bodyKey": "events.rival_undercut.body",
+      "characterId": "nga_noodles",
+      "minTier": 1,
+      "maxTier": 3,
+      "weight": 6,
+      "choices": [
+        {
+          "id": "price_war",
+          "textKey": "events.rival_undercut.c.price_war",
+          "resultKey": "events.rival_undercut.r.price_war",
+          "requirement": { "minCash": 150000 },
+          "effects": { "cash": -150000, "reputation": 2, "dispositions": { "nga_noodles": -5 } }
+        },
+        {
+          "id": "ignore",
+          "textKey": "events.rival_undercut.c.ignore",
+          "resultKey": "events.rival_undercut.r.ignore",
+          "effects": { "reputation": -3 }
+        },
+        {
+          "id": "peace",
+          "textKey": "events.rival_undercut.c.peace",
+          "resultKey": "events.rival_undercut.r.peace",
+          "requirement": { "minReputation": 35 },
+          "effects": { "dispositions": { "nga_noodles": 15 }, "collect": ["nga_noodles"] }
+        }
+      ]
+    },
+    {
+      "id": "critic_visit",
+      "titleKey": "events.critic_visit.title",
+      "bodyKey": "events.critic_visit.body",
+      "characterId": "critic_quang",
+      "minTier": 4,
+      "maxTier": 5,
+      "weight": 5,
+      "choices": [
+        {
+          "id": "best",
+          "textKey": "events.critic_visit.c.best",
+          "resultKey": "events.critic_visit.r.best",
+          "requirement": { "minReputation": 60 },
+          "effects": { "critics": 1, "reputation": 8, "dispositions": { "critic_quang": 10 }, "collect": ["critic_quang"] }
+        },
+        {
+          "id": "comp",
+          "textKey": "events.critic_visit.c.comp",
+          "resultKey": "events.critic_visit.r.comp",
+          "requirement": { "minCash": 200000 },
+          "effects": { "cash": -200000, "reputation": 2, "dispositions": { "critic_quang": 5 }, "collect": ["critic_quang"] }
+        },
+        {
+          "id": "wing_it",
+          "textKey": "events.critic_visit.c.wing_it",
+          "resultKey": "events.critic_visit.r.wing_it",
+          "effects": { "reputation": -10, "dispositions": { "critic_quang": -10 } }
+        }
+      ]
+    },
+    {
+      "id": "blogger_feature",
+      "titleKey": "events.blogger_feature.title",
+      "bodyKey": "events.blogger_feature.body",
+      "characterId": "blogger_mai",
+      "minTier": 2,
+      "maxTier": 4,
+      "weight": 5,
+      "choices": [
+        {
+          "id": "invite",
+          "textKey": "events.blogger_feature.c.invite",
+          "resultKey": "events.blogger_feature.r.invite",
+          "effects": { "reputation": 5, "dispositions": { "blogger_mai": 10 } }
+        },
+        {
+          "id": "promo",
+          "textKey": "events.blogger_feature.c.promo",
+          "resultKey": "events.blogger_feature.r.promo",
+          "requirement": { "minCash": 300000 },
+          "effects": { "cash": -300000, "reputation": 8, "dispositions": { "blogger_mai": 5 } }
+        },
+        {
+          "id": "ignore",
+          "textKey": "events.blogger_feature.c.ignore",
+          "resultKey": "events.blogger_feature.r.ignore",
+          "effects": { "dispositions": { "blogger_mai": -5 } }
+        }
+      ]
+    },
+    {
+      "id": "cart_breakdown",
+      "titleKey": "events.cart_breakdown.title",
+      "bodyKey": "events.cart_breakdown.body",
+      "characterId": "uncle_tam",
+      "minTier": 1,
+      "maxTier": 2,
+      "weight": 5,
+      "choices": [
+        {
+          "id": "diy",
+          "textKey": "events.cart_breakdown.c.diy",
+          "resultKey": "events.cart_breakdown.r.diy",
+          "effects": { "stamina": -20 }
+        },
+        {
+          "id": "uncle",
+          "textKey": "events.cart_breakdown.c.uncle",
+          "resultKey": "events.cart_breakdown.r.uncle",
+          "requirement": { "minCash": 50000 },
+          "effects": { "cash": -50000, "dispositions": { "uncle_tam": 10 } }
+        },
+        {
+          "id": "parts",
+          "textKey": "events.cart_breakdown.c.parts",
+          "resultKey": "events.cart_breakdown.r.parts",
+          "requirement": { "minCash": 250000 },
+          "effects": { "cash": -250000 }
+        }
+      ]
+    },
+    {
+      "id": "pavement_sweep",
+      "titleKey": "events.pavement_sweep.title",
+      "bodyKey": "events.pavement_sweep.body",
+      "characterId": "officer_long",
+      "minTier": 1,
+      "maxTier": 2,
+      "weight": 6,
+      "choices": [
+        {
+          "id": "run",
+          "textKey": "events.pavement_sweep.c.run",
+          "resultKey": "events.pavement_sweep.r.run",
+          "effects": { "reputation": -2, "stamina": -10 }
+        },
+        {
+          "id": "fine",
+          "textKey": "events.pavement_sweep.c.fine",
+          "resultKey": "events.pavement_sweep.r.fine",
+          "requirement": { "minCash": 150000 },
+          "effects": { "cash": -150000, "dispositions": { "officer_long": 5 } }
+        },
+        {
+          "id": "nod",
+          "textKey": "events.pavement_sweep.c.nod",
+          "resultKey": "events.pavement_sweep.r.nod",
+          "requirement": { "minDisposition": { "characterId": "officer_long", "value": 60 } },
+          "effects": { "reputation": 1, "dispositions": { "officer_long": 2 } }
+        }
+      ]
+    },
+    {
+      "id": "grandma_recipe",
+      "titleKey": "events.grandma_recipe.title",
+      "bodyKey": "events.grandma_recipe.body",
+      "characterId": "grandma_yen",
+      "minTier": 1,
+      "maxTier": 3,
+      "weight": 3,
+      "once": true,
+      "choices": [
+        {
+          "id": "listen",
+          "textKey": "events.grandma_recipe.c.listen",
+          "resultKey": "events.grandma_recipe.r.listen",
+          "effects": { "stamina": -30, "setFlags": ["secret_broth"], "dispositions": { "grandma_yen": 20 } }
+        },
+        {
+          "id": "later",
+          "textKey": "events.grandma_recipe.c.later",
+          "resultKey": "events.grandma_recipe.r.later",
+          "effects": { "dispositions": { "grandma_yen": 5 } }
+        },
+        {
+          "id": "busy",
+          "textKey": "events.grandma_recipe.c.busy",
+          "resultKey": "events.grandma_recipe.r.busy",
+          "effects": { "dispositions": { "grandma_yen": -10 } }
+        }
+      ]
+    },
+    {
+      "id": "typhoon_day",
+      "titleKey": "events.typhoon_day.title",
+      "bodyKey": "events.typhoon_day.body",
+      "minTier": 1,
+      "maxTier": 5,
+      "weight": 3,
+      "choices": [
+        {
+          "id": "close",
+          "textKey": "events.typhoon_day.c.close",
+          "resultKey": "events.typhoon_day.r.close",
+          "effects": { "reputation": -1 }
+        },
+        {
+          "id": "serve",
+          "textKey": "events.typhoon_day.c.serve",
+          "resultKey": "events.typhoon_day.r.serve",
+          "effects": { "reputation": 6, "stamina": -20 }
+        },
+        {
+          "id": "shelter",
+          "textKey": "events.typhoon_day.c.shelter",
+          "resultKey": "events.typhoon_day.r.shelter",
+          "requirement": { "minCash": 100000 },
+          "effects": { "cash": -100000, "reputation": 8, "dispositions": { "driver_vu": 5, "nga_noodles": 5 } }
+        }
+      ]
+    },
+    {
+      "id": "festival_rush",
+      "titleKey": "events.festival_rush.title",
+      "bodyKey": "events.festival_rush.body",
+      "minTier": 1,
+      "maxTier": 5,
+      "weight": 4,
+      "choices": [
+        {
+          "id": "work",
+          "textKey": "events.festival_rush.c.work",
+          "resultKey": "events.festival_rush.r.work",
+          "effects": { "cash": 400000, "reputation": 4, "stamina": -25 }
+        },
+        {
+          "id": "skip",
+          "textKey": "events.festival_rush.c.skip",
+          "resultKey": "events.festival_rush.r.skip",
+          "effects": {}
+        }
+      ]
+    },
+    {
+      "id": "supplier_offer",
+      "titleKey": "events.supplier_offer.title",
+      "bodyKey": "events.supplier_offer.body",
+      "characterId": "supplier_sang",
+      "minTier": 2,
+      "maxTier": 4,
+      "weight": 4,
+      "once": true,
+      "choices": [
+        {
+          "id": "deal",
+          "textKey": "events.supplier_offer.c.deal",
+          "resultKey": "events.supplier_offer.r.deal",
+          "requirement": { "minCash": 500000 },
+          "effects": { "cash": -500000, "dispositions": { "supplier_sang": 20 } }
+        },
+        {
+          "id": "taste",
+          "textKey": "events.supplier_offer.c.taste",
+          "resultKey": "events.supplier_offer.r.taste",
+          "effects": { "dispositions": { "supplier_sang": 10 } }
+        },
+        {
+          "id": "decline",
+          "textKey": "events.supplier_offer.c.decline",
+          "resultKey": "events.supplier_offer.r.decline",
+          "effects": { "dispositions": { "supplier_sang": -5 } }
+        }
+      ]
+    },
+    {
+      "id": "karaoke_diplomacy",
+      "titleKey": "events.karaoke_diplomacy.title",
+      "bodyKey": "events.karaoke_diplomacy.body",
+      "characterId": "sau_silk",
+      "minTier": 3,
+      "maxTier": 5,
+      "weight": 3,
+      "once": true,
+      "choices": [
+        {
+          "id": "sing",
+          "textKey": "events.karaoke_diplomacy.c.sing",
+          "resultKey": "events.karaoke_diplomacy.r.sing",
+          "effects": { "stamina": -15, "dispositions": { "sau_silk": 15 } }
+        },
+        {
+          "id": "rounds",
+          "textKey": "events.karaoke_diplomacy.c.rounds",
+          "resultKey": "events.karaoke_diplomacy.r.rounds",
+          "requirement": { "minCash": 400000 },
+          "effects": { "cash": -400000, "dispositions": { "sau_silk": 10, "minh_hammer": 5 } }
+        },
+        {
+          "id": "leave",
+          "textKey": "events.karaoke_diplomacy.c.leave",
+          "resultKey": "events.karaoke_diplomacy.r.leave",
+          "effects": { "dispositions": { "sau_silk": -5 } }
+        }
+      ]
+    },
+    {
+      "id": "michelin_whisper",
+      "titleKey": "events.michelin_whisper.title",
+      "bodyKey": "events.michelin_whisper.body",
+      "characterId": "ghost_scout",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 6,
+      "choices": [
+        {
+          "id": "flawless",
+          "textKey": "events.michelin_whisper.c.flawless",
+          "resultKey": "events.michelin_whisper.r.flawless",
+          "requirement": { "minReputation": 75 },
+          "effects": { "critics": 1, "reputation": 5 }
+        },
+        {
+          "id": "panic",
+          "textKey": "events.michelin_whisper.c.panic",
+          "resultKey": "events.michelin_whisper.r.panic",
+          "requirement": { "minCash": 2000000 },
+          "effects": { "cash": -2000000, "critics": 1, "stamina": -20 }
+        },
+        {
+          "id": "cool",
+          "textKey": "events.michelin_whisper.c.cool",
+          "resultKey": "events.michelin_whisper.r.cool",
+          "effects": {}
+        }
+      ]
+    },
+    {
+      "id": "vu_lunch",
+      "titleKey": "events.vu_lunch.title",
+      "bodyKey": "events.vu_lunch.body",
+      "characterId": "driver_vu",
+      "minTier": 1,
+      "maxTier": 3,
+      "weight": 5,
+      "choices": [
+        {
+          "id": "on_house",
+          "textKey": "events.vu_lunch.c.on_house",
+          "resultKey": "events.vu_lunch.r.on_house",
+          "effects": { "reputation": 2, "dispositions": { "driver_vu": 10 } }
+        },
+        {
+          "id": "charge",
+          "textKey": "events.vu_lunch.c.charge",
+          "resultKey": "events.vu_lunch.r.charge",
+          "effects": { "cash": 35000, "dispositions": { "driver_vu": -2 } }
+        }
+      ]
+    }
+  ]
+}

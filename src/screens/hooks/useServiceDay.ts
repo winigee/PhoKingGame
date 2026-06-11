@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { dishes, gameConfig, ingredientsById } from '../../content';
+import { patienceMultiplier } from '../../engine/abilities';
 import { freshness } from '../../engine/inventory';
 import type { Grade, IngredientCategory } from '../../engine/types';
 import { useGameStore, type ServeResult } from '../../state/gameStore';
@@ -23,13 +24,14 @@ export type Picks = Partial<Record<IngredientCategory, { ingredientId: string; g
  */
 export function useServiceDay() {
   const dish = dishes[0];
-  const { lots, day, customersToday, ledger, serveBowl, customerWalked, closeService } =
+  const { lots, day, customersToday, ledger, collected, serveBowl, customerWalked, closeService } =
     useGameStore(
       useShallow((s) => ({
         lots: s.lots,
         day: s.day,
         customersToday: s.customersToday,
         ledger: s.ledger,
+        collected: s.collected,
         serveBowl: s.serveBowl,
         customerWalked: s.customerWalked,
         closeService: s.closeService,
@@ -38,8 +40,9 @@ export function useServiceDay() {
 
   const visits = ledger.served + ledger.walkedAway;
   const queueDone = visits >= customersToday;
+  const patienceWindow = gameConfig.patienceSeconds * patienceMultiplier(collected);
 
-  const [patienceLeft, setPatienceLeft] = useState(gameConfig.patienceSeconds);
+  const [patienceLeft, setPatienceLeft] = useState(patienceWindow);
   const [picks, setPicks] = useState<Picks>({});
   const [lastResult, setLastResult] = useState<ServeResult | null>(null);
 
@@ -55,8 +58,8 @@ export function useServiceDay() {
     if (queueDone || patienceLeft > 0) return;
     customerWalked();
     setPicks({});
-    setPatienceLeft(gameConfig.patienceSeconds);
-  }, [patienceLeft, queueDone, customerWalked]);
+    setPatienceLeft(patienceWindow);
+  }, [patienceLeft, queueDone, customerWalked, patienceWindow]);
 
   /** Available lots per dish component, grouped by ingredient and grade. */
   const optionsByCategory = useMemo(() => {
@@ -93,18 +96,18 @@ export function useServiceDay() {
   const serve = useCallback(() => {
     if (!canServe) return;
     const ordered = dish.components.map((c) => picks[c]!);
-    const speed = patienceLeft / gameConfig.patienceSeconds;
+    const speed = patienceLeft / patienceWindow;
     setLastResult(serveBowl(ordered, speed));
     setPicks({});
-    setPatienceLeft(gameConfig.patienceSeconds);
-  }, [canServe, dish.components, picks, patienceLeft, serveBowl]);
+    setPatienceLeft(patienceWindow);
+  }, [canServe, dish.components, picks, patienceLeft, serveBowl, patienceWindow]);
 
   return {
     dish,
     customersToday,
     visits,
     queueDone,
-    patienceFraction: patienceLeft / gameConfig.patienceSeconds,
+    patienceFraction: patienceLeft / patienceWindow,
     optionsByCategory,
     picks,
     pick,
