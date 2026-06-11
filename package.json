@@ -1,0 +1,33 @@
+{
+  "name": "phokinggame",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "expo": "~56.0.11",
+    "expo-sqlite": "~56.0.5",
+    "expo-status-bar": "~56.0.4",
+    "i18next": "^26.3.1",
+    "react": "19.2.3",
+    "react-i18next": "^17.0.8",
+    "react-native": "0.85.3",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.9.3",
+    "@types/react": "~19.2.2",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.11",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "private": true
+}
