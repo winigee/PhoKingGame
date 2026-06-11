@@ -98,6 +98,43 @@
     "EPIC": "Epic",
     "LEGENDARY": "Legendary"
   },
+  "shop": {
+    "title": "{{brand}} Shop",
+    "previewBanner": "PREVIEW — NOTHING IS FOR SALE YET",
+    "yourXp": "{{xp}} XP earned on the street",
+    "discountNow": "Current preview discount: {{percent}}%",
+    "nextStep": "next step at {{xp}} XP",
+    "xpTag": "{{xp}} XP",
+    "previewOrder": "Preview build: orders are not real and never leave the device.",
+    "smallPrint": "This is a preview of a future shop. No prices, no payments, no personal data — just noodle dreams.",
+    "categoryGlyph": {
+      "NOODLES": "🍜",
+      "MERCH": "🧢",
+      "CARDS": "🃏"
+    },
+    "products": {
+      "instant_original": {
+        "name": "Instant Phở — Original",
+        "desc": "Grandma-approved broth, three minutes flat."
+      },
+      "instant_spicy": {
+        "name": "Instant Phở — Sweat Edition",
+        "desc": "For people who think regret is a flavour."
+      },
+      "bowl_set": {
+        "name": "Street Cart Bowl Set",
+        "desc": "Two bowls, two spoons, zero excuses for sad desk lunches."
+      },
+      "street_cap": {
+        "name": "Pho King Cap",
+        "desc": "Tell the world exactly how your noodles are doing."
+      },
+      "card_deck": {
+        "name": "Character Card Deck",
+        "desc": "All your street friends and enemies, printed at 63×88."
+      }
+    }
+  },
   "event": {
     "header": "Street News",
     "locked": "Locked — {{hint}}",

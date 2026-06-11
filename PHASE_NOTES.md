@@ -108,3 +108,29 @@ npm run export-cards   # emits dist/cards/ for the card designer
 
 ### How to run
 No new commands; events surface automatically after service.
+
+## Phase 4 — Commerce interface (preview only)
+
+### What was built
+- `CommerceProvider` interface (`/src/commerce/types.ts`) exactly as briefed:
+  `getCatalogue`, `getDiscountForXP`, `redeemXP`, `placeOrder`. All types
+  (Product, CartItem, DiscountQuote, RedemptionToken, OrderResult) defined so
+  a real provider can slot in later without UI changes.
+- `MockCommerceProvider` returning canned data from
+  `/src/content/catalogue.json` (5 preview products, 4 XP discount steps).
+  `placeOrder` always returns `PREVIEW_ONLY`; nothing leaves the device.
+- "Pho King Shop" screen: renders the catalogue, the player's XP (earned
+  from lifetime bowls served + reputation) and the XP→discount conversion,
+  under a permanent "PREVIEW — NOTHING IS FOR SALE YET" banner. No prices,
+  no payment UI, no personal data collection.
+- Feature flag `COMMERCE_ENABLED` in `/src/config/flags.ts`, **false by
+  default** — the shop entry button and screen are entirely absent unless
+  the flag is flipped at build time.
+
+### Known issues
+- XP is recomputed from lifetime stats rather than stored as a spendable
+  balance; when real redemption arrives it needs a ledger of spent XP.
+
+### How to run
+Flip `COMMERCE_ENABLED` to `true` in `src/config/flags.ts` to see the
+shop preview; it ships off.

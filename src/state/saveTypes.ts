@@ -20,6 +20,8 @@ export interface SaveGame {
   equityGiven?: number;
   empire?: EmpireState;
   prestigeBonus?: number;
+  /** Phase 4: lifetime bowls served, feeds shop XP. */
+  lifetimeServed?: number;
 }
 
 export interface Persistence {

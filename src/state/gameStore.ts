@@ -70,6 +70,7 @@ export interface GameState {
   lastRepDelta: number;
   collected: string[];
   cardViewerOpen: boolean;
+  shopOpen: boolean;
 
   /** Relationships: disposition 0..100 by character id (default 50). */
   dispositions: Record<string, number>;
@@ -86,8 +87,11 @@ export interface GameState {
   empire: EmpireState;
   prestigeBonus: number;
   lastQuarterProfit: number;
+  /** Lifetime bowls served across the run; feeds shop XP. */
+  lifetimeServed: number;
 
   setCardViewerOpen(open: boolean): void;
+  setShopOpen(open: boolean): void;
   newGame(seed?: number, prestigeBonus?: number): Promise<void>;
   continueGame(): Promise<boolean>;
   buyBatch(ingredientId: string, grade: Grade): boolean;
@@ -132,6 +136,7 @@ const FRESH_RUN = {
   tierUpTo: null,
   empire: emptyEmpire(),
   lastQuarterProfit: 0,
+  lifetimeServed: 0,
 };
 
 export const useGameStore = create<GameState>((set, get) => ({
@@ -150,11 +155,16 @@ export const useGameStore = create<GameState>((set, get) => ({
   lastRepDelta: 0,
   collected: [],
   cardViewerOpen: false,
+  shopOpen: false,
   prestigeBonus: 0,
   ...FRESH_RUN,
 
   setCardViewerOpen(open) {
     set({ cardViewerOpen: open });
+  },
+
+  setShopOpen(open) {
+    set({ shopOpen: open });
   },
 
   async newGame(seed = Date.now() & 0xffffffff, prestigeBonus = 0) {
@@ -196,6 +206,7 @@ export const useGameStore = create<GameState>((set, get) => ({
       equityGiven: save.equityGiven ?? 0,
       empire: save.empire ?? emptyEmpire(),
       prestigeBonus: save.prestigeBonus ?? 0,
+      lifetimeServed: save.lifetimeServed ?? 0,
     };
     set({ ...base, phase: save.tier >= 6 ? 'EMPIRE' : 'MORNING', ...startMorning(base) });
     return true;
@@ -258,6 +269,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     set({
       lots,
       stamina: Math.max(0, state.stamina - gameConfig.staminaPerBowl),
+      lifetimeServed: state.lifetimeServed + 1,
       ledger: {
         ...state.ledger,
         served: state.ledger.served + 1,
@@ -427,5 +439,6 @@ function snapshot(state: GameState): SaveGame {
     equityGiven: state.equityGiven,
     empire: state.empire,
     prestigeBonus: state.prestigeBonus,
+    lifetimeServed: state.lifetimeServed,
   };
 }

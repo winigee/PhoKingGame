@@ -5,17 +5,20 @@ import { useShallow } from 'zustand/react/shallow';
 import { HudBar } from '../components/HudBar';
 import { MarketRow } from '../components/MarketRow';
 import { PrimaryButton } from '../components/PrimaryButton';
+import { BRAND_NAME } from '../config/brand';
+import { COMMERCE_ENABLED } from '../config/flags';
 import { colors, spacing } from '../config/theme';
 import { ingredients } from '../content';
 import { useGameStore } from '../state/gameStore';
 
 export function MarketScreen() {
   const { t } = useTranslation();
-  const { spoiledToday, openForService, setCardViewerOpen, tierUpTo } = useGameStore(
+  const { spoiledToday, openForService, setCardViewerOpen, setShopOpen, tierUpTo } = useGameStore(
     useShallow((s) => ({
       spoiledToday: s.spoiledToday,
       openForService: s.openForService,
       setCardViewerOpen: s.setCardViewerOpen,
+      setShopOpen: s.setShopOpen,
       tierUpTo: s.tierUpTo,
     }))
   );
@@ -45,6 +48,13 @@ export function MarketScreen() {
       <View style={styles.footer}>
         <PrimaryButton label={t('market.openCart')} onPress={openForService} />
         <PrimaryButton label={t('cards.title')} onPress={() => setCardViewerOpen(true)} variant="ghost" />
+        {COMMERCE_ENABLED && (
+          <PrimaryButton
+            label={t('shop.title', { brand: BRAND_NAME })}
+            onPress={() => setShopOpen(true)}
+            variant="ghost"
+          />
+        )}
       </View>
     </View>
   );

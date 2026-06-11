@@ -1,0 +1,50 @@
+{
+  "discountSteps": [
+    { "xp": 500, "discountPercent": 5 },
+    { "xp": 1500, "discountPercent": 10 },
+    { "xp": 4000, "discountPercent": 20 },
+    { "xp": 10000, "discountPercent": 30 }
+  ],
+  "products": [
+    {
+      "id": "instant_original",
+      "nameKey": "shop.products.instant_original.name",
+      "descriptionKey": "shop.products.instant_original.desc",
+      "category": "NOODLES",
+      "artworkSlot": "art/shop/instant_original.png",
+      "xpTag": 500
+    },
+    {
+      "id": "instant_spicy",
+      "nameKey": "shop.products.instant_spicy.name",
+      "descriptionKey": "shop.products.instant_spicy.desc",
+      "category": "NOODLES",
+      "artworkSlot": "art/shop/instant_spicy.png",
+      "xpTag": 500
+    },
+    {
+      "id": "bowl_set",
+      "nameKey": "shop.products.bowl_set.name",
+      "descriptionKey": "shop.products.bowl_set.desc",
+      "category": "MERCH",
+      "artworkSlot": "art/shop/bowl_set.png",
+      "xpTag": 2000
+    },
+    {
+      "id": "street_cap",
+      "nameKey": "shop.products.street_cap.name",
+      "descriptionKey": "shop.products.street_cap.desc",
+      "category": "MERCH",
+      "artworkSlot": "art/shop/street_cap.png",
+      "xpTag": 1500
+    },
+    {
+      "id": "card_deck",
+      "nameKey": "shop.products.card_deck.name",
+      "descriptionKey": "shop.products.card_deck.desc",
+      "category": "CARDS",
+      "artworkSlot": "art/shop/card_deck.png",
+      "xpTag": 4000
+    }
+  ]
+}
