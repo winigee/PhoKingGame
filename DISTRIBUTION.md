@@ -23,6 +23,48 @@ later load automatically.
 Limits: it lives inside Expo Go (no own home-screen icon), and the
 publisher's account is needed on the phone.
 
+## Option C — Android APK for a Galaxy (or any Android) phone
+
+No Apple account, no Google account, no fees. The `preview` profile is
+configured to produce an installable APK.
+
+```bash
+eas build --platform android --profile preview
+```
+
+When the cloud build finishes (~10–15 min) you get a download link/QR.
+Open it on the phone, allow "install from unknown sources" when prompted,
+and the game installs like a normal app with its own icon.
+
+Fully offline alternative (no Expo account either) with Android Studio
+installed locally:
+
+```bash
+npx expo prebuild --platform android
+cd android && ./gradlew assembleRelease
+# APK lands in android/app/build/outputs/apk/release/
+```
+
+## Option D — iOS Simulator on a Mac (free)
+
+Install Xcode from the Mac App Store (free, no developer account), then:
+
+```bash
+npm install
+npx expo start
+# press "i" — Expo installs and launches the app in the iOS Simulator
+```
+
+Or build a standalone simulator app: `eas build --platform ios --profile
+preview` produces a .app you drag onto a running simulator.
+
+## Option E — Your own iPhone with a free Apple ID (7-day builds)
+
+A Mac + cable + free Apple ID (no $99 membership): connect the iPhone,
+then `npx expo run:ios --device` and pick your personal team when Xcode
+asks about signing. The app installs natively but Apple expires the
+signature after 7 days, after which you re-run the command.
+
 ## Option B — TestFlight (a real installable app)
 
 Needs an Apple Developer Program membership (US$99/year).
