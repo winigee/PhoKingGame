@@ -1,0 +1,85 @@
+{
+  "title": {
+    "tagline": "From street cart to noodle empire",
+    "newGame": "New Game",
+    "continue": "Continue",
+    "confirmOverwrite": "Start over? Your saved game will be replaced."
+  },
+  "common": {
+    "day": "Day {{day}}",
+    "cash": "Cash",
+    "reputation": "Reputation",
+    "stamina": "Stamina",
+    "tier": "Tier {{tier}}",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "back": "Back",
+    "next": "Next"
+  },
+  "tierName": {
+    "1": "Street Cart",
+    "2": "Pavement Stall",
+    "3": "Shophouse Eatery",
+    "4": "Restaurant",
+    "5": "Michelin Star",
+    "6": "Global Empire"
+  },
+  "market": {
+    "title": "Wet Market",
+    "subtitle": "Morning prices. Grade A keeps longer and tastes better.",
+    "grade": "Grade {{grade}}",
+    "inStock": "{{count}} servings in stock",
+    "buy": "Buy",
+    "batch": "batch of {{count}}",
+    "cantAfford": "Not enough cash",
+    "openCart": "Open for service",
+    "spoiledOvernight": "Spoiled overnight: {{items}}",
+    "shelfLife": "keeps {{days}}d"
+  },
+  "ingredient": {
+    "beef_bones": "Beef bones",
+    "chicken_carcass": "Chicken carcass",
+    "banh_pho": "Fresh bánh phở",
+    "dried_noodles": "Dried noodles",
+    "brisket": "Brisket",
+    "chicken_breast": "Chicken breast",
+    "herb_basket": "Herb basket",
+    "lime_chilli": "Lime & chilli"
+  },
+  "dish": {
+    "pho_bo": "Phở Bò"
+  },
+  "service": {
+    "title": "Service",
+    "customersWaiting": "{{count}} in the queue",
+    "queueDone": "Queue cleared!",
+    "serve": "Serve bowl",
+    "noCustomer": "Waiting for customers…",
+    "customerOrder": "wants a {{dish}}",
+    "pickComponent": "Pick {{category}}",
+    "outOfStock": "out of stock",
+    "walkedAway": "A customer walked away…",
+    "mistake": "Tired hands — you fumbled the bowl!",
+    "endEarly": "Close up early",
+    "patience": "Patience",
+    "category": {
+      "BROTH": "Broth",
+      "NOODLES": "Noodles",
+      "PROTEIN": "Protein",
+      "GARNISH": "Garnish"
+    }
+  },
+  "evening": {
+    "title": "Counting the Till",
+    "served": "Bowls served",
+    "walkedAway": "Walked away",
+    "takings": "Takings",
+    "marketSpend": "Market spend",
+    "dailyCosts": "Daily costs",
+    "net": "Net",
+    "reputationChange": "Reputation",
+    "avgSatisfaction": "Avg. satisfaction",
+    "sleep": "Save & sleep",
+    "saved": "Game saved"
+  }
+}

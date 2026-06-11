@@ -1,0 +1,10 @@
+{
+  "dishes": [
+    {
+      "id": "pho_bo",
+      "nameKey": "dish.pho_bo",
+      "components": ["BROTH", "NOODLES", "PROTEIN", "GARNISH"],
+      "basePrice": 35000
+    }
+  ]
+}

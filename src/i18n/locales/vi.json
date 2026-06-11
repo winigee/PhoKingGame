@@ -1,0 +1,15 @@
+{
+  "title": {
+    "newGame": "Trò chơi mới",
+    "continue": "Tiếp tục"
+  },
+  "common": {
+    "day": "Ngày {{day}}",
+    "cash": "Tiền mặt",
+    "reputation": "Danh tiếng",
+    "stamina": "Sức bền"
+  },
+  "dish": {
+    "pho_bo": "Phở Bò"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "startingCash": 500000,
+  "staminaMax": 100,
+  "staminaPerBowl": 4,
+  "staminaMistakeThreshold": 30,
+  "mistakeChanceAtZero": 0.5,
+  "gradeMultiplier": { "A": 1.5, "B": 1.0, "C": 0.6 },
+  "gradeQuality": { "A": 1.0, "B": 0.75, "C": 0.45 },
+  "marketSwing": 0.2,
+  "customersAtRep0": 6,
+  "customersAtRep100": 30,
+  "patienceSeconds": 20,
+  "reputationSwing": 6,
+  "satisfactionFloor": 0.5,
+  "dailyCostByTier": [40000, 90000, 250000, 700000, 1500000, 4000000],
+  "startingReputation": 10,
+  "servingsPerBatch": 10
+}

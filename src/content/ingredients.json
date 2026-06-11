@@ -1,0 +1,60 @@
+{
+  "ingredients": [
+    {
+      "id": "beef_bones",
+      "nameKey": "ingredient.beef_bones",
+      "category": "BROTH",
+      "basePrice": 60000,
+      "shelfLife": { "A": 3, "B": 2, "C": 1 }
+    },
+    {
+      "id": "chicken_carcass",
+      "nameKey": "ingredient.chicken_carcass",
+      "category": "BROTH",
+      "basePrice": 40000,
+      "shelfLife": { "A": 3, "B": 2, "C": 1 }
+    },
+    {
+      "id": "banh_pho",
+      "nameKey": "ingredient.banh_pho",
+      "category": "NOODLES",
+      "basePrice": 25000,
+      "shelfLife": { "A": 2, "B": 2, "C": 1 }
+    },
+    {
+      "id": "dried_noodles",
+      "nameKey": "ingredient.dried_noodles",
+      "category": "NOODLES",
+      "basePrice": 15000,
+      "shelfLife": { "A": 5, "B": 4, "C": 3 }
+    },
+    {
+      "id": "brisket",
+      "nameKey": "ingredient.brisket",
+      "category": "PROTEIN",
+      "basePrice": 90000,
+      "shelfLife": { "A": 2, "B": 2, "C": 1 }
+    },
+    {
+      "id": "chicken_breast",
+      "nameKey": "ingredient.chicken_breast",
+      "category": "PROTEIN",
+      "basePrice": 55000,
+      "shelfLife": { "A": 2, "B": 2, "C": 1 }
+    },
+    {
+      "id": "herb_basket",
+      "nameKey": "ingredient.herb_basket",
+      "category": "GARNISH",
+      "basePrice": 20000,
+      "shelfLife": { "A": 2, "B": 1, "C": 1 }
+    },
+    {
+      "id": "lime_chilli",
+      "nameKey": "ingredient.lime_chilli",
+      "category": "GARNISH",
+      "basePrice": 12000,
+      "shelfLife": { "A": 3, "B": 2, "C": 2 }
+    }
+  ]
+}
