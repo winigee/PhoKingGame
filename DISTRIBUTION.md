@@ -87,3 +87,17 @@ Notes:
   signing certificates automatically; say yes to everything.
 - Subsequent releases: `eas build … && eas submit …` again, or use
   `eas update` for JS-only changes.
+
+## Option F — Run in a browser (no Xcode, no accounts)
+
+Web support is wired in (react-native-web; saves fall back to
+localStorage since expo-sqlite is native-only):
+
+```bash
+npm install
+npm run web    # opens http://localhost:8081 in your default browser
+```
+
+Works in Chrome/Safari/Edge. Best played with the window narrowed to a
+phone-ish shape. Dev-server only — for a hosted version, `npx expo export
+--platform web` emits a static site you can put anywhere.
