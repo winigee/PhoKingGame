@@ -41,3 +41,36 @@ npm start          # Expo dev server; scan QR with Expo Go (iOS/Android)
 npm test           # jest unit tests
 npm run typecheck  # tsc --noEmit
 ```
+
+## Phase 2 — Characters and cards
+
+### What was built
+- Single `CharacterDef` schema (`/src/engine/characters.ts`): id, name,
+  nickname, faction (9 factions), rarity (5 tiers), stats
+  (power/charm/hustle/loyalty 1–10), ability rules text, flavour text,
+  artwork slot (63×88 aspect), unlock condition (tier or event reference).
+  Includes a `validateCharacter` checker used by tests.
+- 24 launch characters in `/src/content/characters.json` spanning every
+  faction and rarity — including the brief's seeds: Minh "The Hammer"
+  (feeds-his-mother enforcer), Mr Phúc the rent-radar landlord, Chef Bảo who
+  quits over garnish, Quang the noodle-obsessed critic, and Auntie Chín the
+  quiet investor with deep pockets and deeper conditions.
+- Card Viewer screen: collection grid (silhouettes for unmet characters) and
+  a tap-to-zoom large card. The card component renders at the physical 63:88
+  ratio and is the design reference for print; original frame and iconography.
+- Collection state lives in the store and persists in the save payload
+  (backwards-compatible optional field). Tier-gated characters join the
+  collection automatically each morning; event unlocks land with Phase 3.
+- Export tool: `npm run export-cards` writes `dist/cards/cards.json`,
+  `print-manifest.json` (card size, bleed, counts) and `cards.csv` for proofing.
+
+### Known issues
+- Character ability/flavour text is English-only in the content file; card
+  text localisation needs per-locale content variants (planned with vi pass).
+- Placeholder art: cards render an initial monogram; artworkSlot paths are
+  reserved for the designer handoff.
+
+### How to run
+```bash
+npm run export-cards   # emits dist/cards/ for the card designer
+```

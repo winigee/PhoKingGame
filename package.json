@@ -27,7 +27,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "export-cards": "node scripts/export-cards.mjs"
   },
   "private": true
 }

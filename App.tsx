@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import './src/i18n';
 import { colors } from './src/config/theme';
+import { CardViewerScreen } from './src/screens/CardViewerScreen';
 import { EveningScreen } from './src/screens/EveningScreen';
 import { MarketScreen } from './src/screens/MarketScreen';
 import { ServiceScreen } from './src/screens/ServiceScreen';
@@ -15,13 +16,20 @@ setPersistence(sqlitePersistence);
 
 export default function App() {
   const phase = useGameStore((s) => s.phase);
+  const cardViewerOpen = useGameStore((s) => s.cardViewerOpen);
 
   return (
     <SafeAreaView style={styles.root}>
-      {phase === 'TITLE' && <TitleScreen />}
-      {phase === 'MORNING' && <MarketScreen />}
-      {phase === 'SERVICE' && <ServiceScreen />}
-      {phase === 'EVENING' && <EveningScreen />}
+      {cardViewerOpen ? (
+        <CardViewerScreen />
+      ) : (
+        <>
+          {phase === 'TITLE' && <TitleScreen />}
+          {phase === 'MORNING' && <MarketScreen />}
+          {phase === 'SERVICE' && <ServiceScreen />}
+          {phase === 'EVENING' && <EveningScreen />}
+        </>
+      )}
       <StatusBar style="dark" />
     </SafeAreaView>
   );

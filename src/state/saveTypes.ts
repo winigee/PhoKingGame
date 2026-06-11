@@ -9,6 +9,8 @@ export interface SaveGame {
   cash: number;
   reputation: number;
   lots: InventoryLot[];
+  /** Collected character card ids. Optional for pre-Phase-2 saves. */
+  collected?: string[];
 }
 
 export interface Persistence {

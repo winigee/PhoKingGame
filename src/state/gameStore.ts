@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { dishes, gameConfig, ingredients, ingredientsById } from '../content';
+import { characters, dishes, gameConfig, ingredients, ingredientsById } from '../content';
+import { unlockedByTier } from '../engine/characters';
 import {
   bowlQuality,
   bowlRevenue,
@@ -42,7 +43,13 @@ export interface GameState {
   customersToday: number;
   /** Reputation delta of the last completed day, shown at evening. */
   lastRepDelta: number;
+  /** Collected character card ids. */
+  collected: string[];
+  /** Whether the Card Viewer overlay is open. */
+  cardViewerOpen: boolean;
 
+  setCardViewerOpen(open: boolean): void;
+  collectCharacter(id: string): void;
   newGame(seed?: number): Promise<void>;
   continueGame(): Promise<boolean>;
   buyBatch(ingredientId: string, grade: Grade): boolean;
@@ -84,6 +91,17 @@ export const useGameStore = create<GameState>((set, get) => ({
   spoiledToday: [],
   customersToday: 0,
   lastRepDelta: 0,
+  collected: [],
+  cardViewerOpen: false,
+
+  setCardViewerOpen(open) {
+    set({ cardViewerOpen: open });
+  },
+
+  collectCharacter(id) {
+    const { collected } = get();
+    if (!collected.includes(id)) set({ collected: [...collected, id] });
+  },
 
   async newGame(seed = Date.now() & 0xffffffff) {
     const base = {
@@ -95,6 +113,7 @@ export const useGameStore = create<GameState>((set, get) => ({
       stamina: gameConfig.staminaMax,
       lots: [] as InventoryLot[],
       lastRepDelta: 0,
+      collected: collectForTier([], 1),
     };
     set({ ...base, phase: 'MORNING', ...startMorning(base) });
     await getPersistence().save(snapshot(get()));
@@ -112,6 +131,7 @@ export const useGameStore = create<GameState>((set, get) => ({
       stamina: gameConfig.staminaMax,
       lots: save.lots,
       lastRepDelta: 0,
+      collected: collectForTier(save.collected ?? [], save.tier),
     };
     set({ ...base, phase: 'MORNING', ...startMorning(base) });
     return true;
@@ -202,11 +222,19 @@ export const useGameStore = create<GameState>((set, get) => ({
       stamina: gameConfig.staminaMax,
       lots: state.lots,
       lastRepDelta: newRep - state.reputation,
+      collected: collectForTier(state.collected, state.tier),
     };
     set({ ...base, phase: 'MORNING', ...startMorning(base) });
     await getPersistence().save(snapshot(get()));
   },
 }));
+
+/** Tier-gated characters join the collection automatically; event unlocks are added by the event engine. */
+function collectForTier(collected: string[], tier: number): string[] {
+  const ids = new Set(collected);
+  for (const c of unlockedByTier(characters, tier)) ids.add(c.id);
+  return [...ids];
+}
 
 function snapshot(state: GameState): SaveGame {
   return {
@@ -217,5 +245,6 @@ function snapshot(state: GameState): SaveGame {
     cash: state.cash,
     reputation: state.reputation,
     lots: state.lots,
+    collected: state.collected,
   };
 }

@@ -69,6 +69,35 @@
       "GARNISH": "Garnish"
     }
   },
+  "cards": {
+    "title": "Card Collection",
+    "collected": "{{have}} / {{total}} collected",
+    "locked": "Not yet met",
+    "stat": {
+      "power": "PWR",
+      "charm": "CHM",
+      "hustle": "HSL",
+      "loyalty": "LYL"
+    }
+  },
+  "faction": {
+    "GANG": "Gang",
+    "LANDLORD": "Landlord",
+    "STAFF": "Staff",
+    "CHEF": "Chef",
+    "INVESTOR": "Investor",
+    "ALLY": "Ally",
+    "CRITIC": "Critic",
+    "OFFICIAL": "Official",
+    "FAMILY": "Family"
+  },
+  "rarity": {
+    "COMMON": "Common",
+    "UNCOMMON": "Uncommon",
+    "RARE": "Rare",
+    "EPIC": "Epic",
+    "LEGENDARY": "Legendary"
+  },
   "evening": {
     "title": "Counting the Till",
     "served": "Bowls served",

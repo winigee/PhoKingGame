@@ -11,8 +11,12 @@ import { useGameStore } from '../state/gameStore';
 
 export function MarketScreen() {
   const { t } = useTranslation();
-  const { spoiledToday, openForService } = useGameStore(
-    useShallow((s) => ({ spoiledToday: s.spoiledToday, openForService: s.openForService }))
+  const { spoiledToday, openForService, setCardViewerOpen } = useGameStore(
+    useShallow((s) => ({
+      spoiledToday: s.spoiledToday,
+      openForService: s.openForService,
+      setCardViewerOpen: s.setCardViewerOpen,
+    }))
   );
 
   return (
@@ -34,6 +38,7 @@ export function MarketScreen() {
       </ScrollView>
       <View style={styles.footer}>
         <PrimaryButton label={t('market.openCart')} onPress={openForService} />
+        <PrimaryButton label={t('cards.title')} onPress={() => setCardViewerOpen(true)} variant="ghost" />
       </View>
     </View>
   );
